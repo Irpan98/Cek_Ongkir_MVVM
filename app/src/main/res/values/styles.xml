@@ -1,0 +1,43 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+
+
+    <style name="SearchViewStyle" parent="paddingHorizontalParent">
+        <item name="android:paddingTop">4dp</item>
+
+        <item name="mt_placeholderColor">@color/colorTextPrimary</item>
+
+        <item name="mt_searchBarColor">@color/colorSecondary</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+
+    </style>
+
+
+    <style name="textTitleBold" parent="paddingHorizontalParent">
+
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">17dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+<!--    android:paddingHorizontal="14dp"-->
+
+
+    <style name="paddingHorizontalParent">
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+    </style>
+
+
+</resources>
