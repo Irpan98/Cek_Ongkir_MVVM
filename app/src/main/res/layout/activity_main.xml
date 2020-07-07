@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundPrimary"
     android:orientation="vertical"
-    app:layoutDescription="@xml/activity_main_scene"
+
     tools:context=".MainActivity">
 
 
