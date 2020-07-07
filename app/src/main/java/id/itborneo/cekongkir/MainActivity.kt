@@ -24,7 +24,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MaterialSearchBar.OnSearchActionListener {
 
     val TAG = "MainActivity"
 
@@ -44,11 +44,15 @@ class MainActivity : AppCompatActivity() {
 
         SuggestionAdapterPengirim = setSearchAdapter(sb_kota_pengirim)
         SuggestionAdapterTujuan = setSearchAdapter(sb_kota_tujuan)
+
+
 //        sb_kota_pengirim.size
 
         // search kota in searchbar
         searchKota(sb_kota_pengirim, SuggestionAdapterPengirim)
         searchKota(sb_kota_tujuan, SuggestionAdapterTujuan)
+
+
 
         costPost.courier = "jne"
 
@@ -57,6 +61,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         setCourierView()
+
+        sb_kota_pengirim.setOnSearchActionListener(this)
+
     }
 
     private fun setCourierView() {
@@ -65,21 +72,17 @@ class MainActivity : AppCompatActivity() {
 
         var courier = mutableListOf(
             Kurir("jne", courierImage[0]),
-            Kurir("pos",courierImage[1]),
-            Kurir("tiki",courierImage[2])
+            Kurir("pos", courierImage[1]),
+            Kurir("tiki", courierImage[2])
         )
 
 
-        val courierAdapter = KurirRecyclerViewAdapter(courier){
+        val courierAdapter = KurirRecyclerViewAdapter(courier) {
 
         }
 
         rv_kurir.adapter = courierAdapter
         rv_kurir.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-
-
-
-
 
 
     }
@@ -88,6 +91,17 @@ class MainActivity : AppCompatActivity() {
     private fun setSearchAdapter(searchBar: MaterialSearchBar): SuggestionAdapter {
         val inflater =
             getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+
+
+        searchBar.setOnClickListener {
+            searchBar.onClick(it) //not override click
+
+            ml_root.apply {
+                setTransition(R.id.transition_search_bar)
+//                transitionToEnd()
+            }
+        }
 
 
         return SuggestionAdapter(inflater) { city: City, itemView: View ->
@@ -105,7 +119,6 @@ class MainActivity : AppCompatActivity() {
                 setPlaceHolder(city.name)
                 setMaxSuggestionCount(3)
                 closeSearch()
-
             }
 
         }
@@ -182,7 +195,6 @@ class MainActivity : AppCompatActivity() {
                     Log.d(TAG, "textChanged; not null")
                 } else {
                     Log.d(TAG, "textChanged; isNull")
-//
                 }
 
             }
@@ -205,6 +217,35 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+
+    }
+
+    override fun onButtonClicked(buttonCode: Int) {
+        Log.d(TAG, "onButtonClicked")
+
+        if (buttonCode == MaterialSearchBar.BUTTON_BACK) {
+            Log.d(TAG, "backclicked")
+        }
+    }
+
+    override fun onSearchStateChanged(enabled: Boolean) {
+        Log.d(TAG, "onSearchStateChanged $enabled")
+        ml_root.setTransition(R.id.transition_search_bar)
+
+        if (enabled) {
+            ml_root.transitionToStart()
+
+        } else {
+            ml_root.transitionToEnd()
+
+
+        }
+
+    }
+
+    override fun onSearchConfirmed(text: CharSequence?) {
+        Log.d(TAG, "onSearchConfirmed $text")
 
 
     }
