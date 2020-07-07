@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         SuggestionAdapterPengirim = setSearchAdapter(sb_kota_pengirim)
         SuggestionAdapterTujuan = setSearchAdapter(sb_kota_tujuan)
-        sb_kota_pengirim.size
+        //sb_kota_pengirim.size
 
         // search kota in searchbar
         searchKota(sb_kota_pengirim, SuggestionAdapterPengirim)
