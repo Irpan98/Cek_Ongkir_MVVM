@@ -6,8 +6,17 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundPrimary"
     android:orientation="vertical"
+    app:layoutDescription="@xml/activity_main_scene"
     tools:context=".MainActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sb_kota_tujuan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sb_kota_pengirim" />
 
     <com.google.android.material.appbar.AppBarLayout
 
@@ -39,16 +48,6 @@
 
 
     <!--    app:mt_backIconDrawable="@drawable/ic_menu"-->
-    <com.mancj.materialsearchbar.MaterialSearchBar
-        
-        android:id="@+id/sb_kota_pengirim"
-        style="@style/SearchViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image"
-        app:mt_hint="Kota Pengirim"
-        app:mt_maxSuggestionsCount="3"
-        app:mt_placeholder="Kota Pengirim" />
 
 
     <!--    </LinearLayout>-->
@@ -56,22 +55,33 @@
 
     <com.mancj.materialsearchbar.MaterialSearchBar
 
+        android:id="@+id/sb_kota_pengirim"
+        style="@style/SearchViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        app:mt_hint="Kota Pengirim"
+        app:mt_maxSuggestionsCount="3"
+        app:mt_placeholder="Kota Pengirim" />
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+
         android:id="@+id/sb_kota_tujuan"
         style="@style/SearchViewStyle"
         android:elevation="140dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sb_kota_pengirim"
+        app:layout_constraintStart_toStartOf="@+id/sb_kota_pengirim"
         app:layout_constraintTop_toBottomOf="@+id/sb_kota_pengirim"
         app:mt_hint="Kota Tujuan"
         app:mt_maxSuggestionsCount="3"
         app:mt_placeholder="Kota Tujuan" />
 
     <TextView
-        android:layout_marginStart="24dp"
         android:id="@+id/textView"
         style="@style/textTitleBold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:text="Kurir"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sb_kota_tujuan" />
