@@ -11,7 +11,14 @@
 
 
     <style name="SearchViewStyle" parent="paddingHorizontalParent">
-        <item name="android:paddingTop">4dp</item>
+<!--        <item name="android:padding">24dp</item>-->
+        <item name="android:elevation">40dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+
+        <item name="android:paddingBottom">12dp</item>
+
 
         <item name="mt_placeholderColor">@color/colorTextPrimary</item>
 
@@ -19,6 +26,8 @@
 
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">80dp</item>
+
 
 
     </style>
@@ -27,7 +36,7 @@
     <style name="textTitleBold" parent="paddingHorizontalParent">
 
         <item name="android:textColor">@color/colorTextPrimary</item>
-        <item name="android:textSize">17dp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -35,8 +44,8 @@
 
 
     <style name="paddingHorizontalParent">
-        <item name="android:paddingStart">14dp</item>
-        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">14dp</item>
     </style>
 
 

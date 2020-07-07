@@ -22,12 +22,17 @@ import java.util.*
 class SuggestionAdapter(inflater: LayoutInflater, val clickListener: (City, View) -> Unit) :
     SuggestionsAdapter<City, SuggestionAdapter.SuggetionViewHolder>(inflater) {
 
+    private var cities = mutableListOf<City>()
 
     private var showedCities = mutableListOf<City>()
 
     fun cities(cities: MutableList<City>) {
-        setMaxSuggestionsCount(3)
-        setSuggestions(cities)
+        this.cities = cities
+
+        showedCities = cities.subList(0, 3) //limit list cities
+        setSuggestions(showedCities)
+
+
         notifyDataSetChanged()
     }
 
@@ -58,32 +63,44 @@ class SuggestionAdapter(inflater: LayoutInflater, val clickListener: (City, View
 
     }
 
+
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val results = FilterResults()
                 val term = constraint.toString()
                 //put data first to suggstion clone then filter it
-                if (term.isEmpty())  suggestions = suggestions_clone else {
+                suggestions = cities
+
+                if (term.isEmpty()) suggestions = cities else {
                     //suggestions = ArrayList<City>()
 
                     //suggestions = mutableListOf<City>()
-                    showedCities.clear()
+                    showedCities = mutableListOf()
 
-                    suggestions_clone.forEach {
-                        if (it.name.toLowerCase().contains(term.toLowerCase())) {
+//                    Log.d("MainActivity","compare $term")
 
+
+//                    Log.d("MainActivity","cities filter ${cities.toString()}")
+                    cities.forEach {
+
+                        if (it.name.toLowerCase().contains(term.toLowerCase())){
                             showedCities.add(it)
                         }
+//
+//                        if (it.name.toLowerCase().contains(term.toLowerCase())) {
+//
+//                            showedCities.add(it)
+//                        }
                     }
                 }
                 val limitSize = 3
 
 
-//                if(suggestions.size >= limitSize){
-//                    showedCities =showedCities.subList(0, limitSize) //limit list cities
-//
-//                }
+                if (showedCities.size >= limitSize) {
+                    showedCities = showedCities.subList(0, limitSize) //limit list cities
+
+                }
 
                 Log.d("MainAcitivty", "showedCities$showedCities")
 
@@ -93,7 +110,7 @@ class SuggestionAdapter(inflater: LayoutInflater, val clickListener: (City, View
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                val cities  = results?.values  as MutableList<City>
+                val cities = results?.values as MutableList<City>
 
                 suggestions = cities
 

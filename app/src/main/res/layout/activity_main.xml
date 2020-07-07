@@ -33,41 +33,41 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:srcCompat="@drawable/ic_undraw_deliver_illustrator" />
 
 
-
+    <!--    app:mt_backIconDrawable="@drawable/ic_menu"-->
     <com.mancj.materialsearchbar.MaterialSearchBar
+        
         android:id="@+id/sb_kota_pengirim"
         style="@style/SearchViewStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image"
-        app:mt_backIconDrawable="@drawable/ic_menu"
-        app:mt_maxSuggestionsCount="3"
         app:mt_hint="Kota Pengirim"
-        app:mt_placeholder="Kota Pengirim" />
-
-
-    <com.mancj.materialsearchbar.MaterialSearchBar
-        android:id="@+id/sb_kota_tujuan"
-        style="@style/SearchViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sb_kota_pengirim"
-        app:mt_backIconDrawable="@drawable/ic_menu"
         app:mt_maxSuggestionsCount="3"
-        app:mt_hint="Kota Tujuan"
-        app:mt_placeholder="Kota Tujuan" />
+        app:mt_placeholder="Kota Pengirim" />
 
 
     <!--    </LinearLayout>-->
 
 
+    <com.mancj.materialsearchbar.MaterialSearchBar
+
+        android:id="@+id/sb_kota_tujuan"
+        style="@style/SearchViewStyle"
+        android:elevation="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sb_kota_pengirim"
+        app:mt_hint="Kota Tujuan"
+        app:mt_maxSuggestionsCount="3"
+        app:mt_placeholder="Kota Tujuan" />
+
     <TextView
+        android:layout_marginStart="24dp"
         android:id="@+id/textView"
         style="@style/textTitleBold"
         android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sb_kota_tujuan" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rv_kurir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -95,5 +95,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_kurir" />
 </androidx.constraintlayout.widget.ConstraintLayout>
