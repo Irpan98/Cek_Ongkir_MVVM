@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:id="@+id/ml_root"
     app:layoutDescription="@xml/activity_main_scene"
-    tools:context=".MainActivity">
+    tools:context=".mainactivity.MainActivity">
 
 
     <ImageView
@@ -17,7 +17,8 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/sb_kota_tujuan"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sb_kota_pengirim" />
+        app:layout_constraintTop_toTopOf="@+id/sb_kota_pengirim"
+        android:contentDescription="@string/side_image" />
 
     <com.google.android.material.appbar.AppBarLayout
 
@@ -31,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:contentDescription="@string/menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_menu" />
@@ -39,13 +41,15 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
+
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:srcCompat="@drawable/ic_undraw_deliver_illustrator" />
+        app:srcCompat="@drawable/ic_undraw_deliver_illustrator"
+        android:contentDescription="@string/ilustrator" />
 
 
     <!--    app:mt_backIconDrawable="@drawable/ic_menu"-->
@@ -83,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Kurir"
+        android:text="@string/kurir"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sb_kota_tujuan" />
 
@@ -101,7 +105,7 @@
         android:id="@+id/btn_cek_ongkir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cek Ongkir"
+        android:text="@string/cek_ongkir"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

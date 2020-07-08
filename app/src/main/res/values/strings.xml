@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Cek Ongkir</string>
+    <string name="image_cuorier">image_cuorier</string>
+    <string name="side_image">side_image</string>
+    <string name="menu">menu</string>
+    <string name="ilustrator">ilustrator</string>
+    <string name="kurir">Kurir</string>
+    <string name="cek_ongkir">Cek Ongkir</string>
 </resources>
