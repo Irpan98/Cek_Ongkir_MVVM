@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <ImageView
@@ -11,11 +11,11 @@
         android:id="@+id/iv_kurir"
         android:layout_width="60dp"
         android:layout_height="40dp"
+        android:contentDescription="@string/image_cuorier"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/image_cuorier" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -28,17 +28,17 @@
         app:layout_constraintTop_toTopOf="@+id/iv_kurir">
 
         <TextView
-            android:id="@+id/tv_estimate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="3 - 4 Hari"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/tv_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             tools:text="JNE OKE" />
+
+        <TextView
+            android:id="@+id/tv_estimate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="3 - 4 Hari" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -48,9 +48,10 @@
         android:id="@+id/tv_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="3 - 4 Hari"
+        android:layout_marginEnd="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/iv_kurir"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_kurir" />
+        app:layout_constraintTop_toTopOf="@+id/iv_kurir"
+        tools:text="3 - 4 Hari" />
 </androidx.constraintlayout.widget.ConstraintLayout>

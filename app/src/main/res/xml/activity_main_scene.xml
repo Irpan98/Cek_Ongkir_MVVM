@@ -20,9 +20,19 @@
             android:id="@+id/image"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             motion:layout_constraintTop_toBottomOf="@+id/appBarLayout"
             motion:layout_constraintStart_toStartOf="parent" />
+<!--        <Constraint-->
+<!--            android:layout_height="50dp"-->
+<!--            motion:layout_constraintStart_toStartOf="parent"-->
+<!--            motion:layout_constraintTop_toTopOf="@+id/sb_kota_pengirim"-->
+<!--            motion:layout_constraintBottom_toBottomOf="@+id/sb_kota_pengirim"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:id="@+id/iv_sender"-->
+<!--            motion:layout_constraintEnd_toStartOf="@+id/sb_kota_pengirim"-->
+<!--            android:layout_marginLeft="8dp"-->
+<!--            android:layout_marginStart="8dp" />-->
 
     </ConstraintSet>
 
@@ -43,5 +53,37 @@
             android:layout_height="1dp"
             motion:layout_constraintTop_toBottomOf="@+id/appBarLayout"
             motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/iv_dot"
+            motion:layout_constraintEnd_toEndOf="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            motion:layout_constraintTop_toBottomOf="@+id/sb_kota_pengirim"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <!--        <Constraint-->
+<!--            android:id="@+id/iv_sender"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            motion:layout_constraintBottom_toBottomOf="@+id/sb_kota_pengirim"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            motion:layout_constraintStart_toStartOf="parent"-->
+<!--            motion:layout_constraintEnd_toStartOf="@+id/sb_kota_pengirim"-->
+<!--            motion:layout_constraintEnd_toEndOf="@+id/imageView2" />-->
+<!--        <Constraint-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            motion:layout_constraintBottom_toBottomOf="@+id/sb_kota_pengirim"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            motion:layout_constraintStart_toStartOf="parent"-->
+<!--            android:id="@+id/iv_sender"-->
+<!--            motion:layout_constraintEnd_toStartOf="@+id/sb_kota_pengirim"-->
+<!--            motion:layout_constraintEnd_toEndOf="@+id/imageView2" />-->
+        <!--        <Constraint-->
+<!--            android:id="@+id/iv_sender"-->
+<!--            motion:layout_constraintEnd_toEndOf="@+id/imageView2"-->
+<!--            android:layout_height="50dp"-->
+<!--            motion:layout_constraintBottom_toBottomOf="@+id/sb_kota_pengirim"-->
+<!--            motion:layout_constraintTop_toBottomOf="@+id/image"-->
+<!--            motion:layout_constraintStart_toStartOf="parent" />-->
     </ConstraintSet>
 </MotionScene>

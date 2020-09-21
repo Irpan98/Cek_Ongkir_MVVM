@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import id.itborneo.cekongkir.model.CostPost
 import id.itborneo.cekongkir.model.CostResponse
 import id.itborneo.cekongkir.model.ItemCostsRespose
 import kotlinx.android.synthetic.main.item_detail_cost.view.*
 import kotlinx.android.synthetic.main.item_detail_cost.view.iv_kurir
 import kotlinx.android.synthetic.main.item_kurir.view.*
 
-class CostKurirRVAdapter(private val costs: MutableList< ItemCostsRespose>, private val imageStr: String, val clicklistener: (CostResponse)-> Unit) :
+class CostKurirRVAdapter(private val costs: MutableList< ItemCostsRespose>,  val clicklistener: (CostResponse)-> Unit) :
     RecyclerView.Adapter<CostKurirRVAdapter.KurirHolder>() {
 
 

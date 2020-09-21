@@ -18,6 +18,15 @@
         <item name="android:paddingRight">8dp</item>
 
         <item name="android:paddingBottom">12dp</item>
+        <item name="mt_roundedSearchBarEnabled">true</item>
+        <item name="mt_backIconTint">@color/colorPrimary</item>
+        <item name="mt_searchIconTint">@color/colorPrimary</item>
+        <item name="mt_clearIconTint">@color/colorPrimary</item>
+        <item name="mt_clearIconUseTint">true</item>
+        <item name="mt_searchIconUseTint">true</item>
+        <item name="mt_backIconUseTint">true</item>
+
+
 
 
         <item name="mt_placeholderColor">@color/colorTextPrimary</item>
@@ -43,6 +52,16 @@
 <!--    android:paddingHorizontal="14dp"-->
 
 
+
+
+    <style name="AppbarStyleText">
+
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">20sp</item>
+    </style>
     <style name="paddingHorizontalParent">
         <item name="android:paddingLeft">14dp</item>
         <item name="android:paddingRight">14dp</item>

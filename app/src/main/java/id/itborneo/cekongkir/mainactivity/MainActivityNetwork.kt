@@ -4,7 +4,7 @@ import android.util.Log
 import id.itborneo.cekongkir.jsonmodel.JsonCity
 import id.itborneo.cekongkir.jsonmodel.JsonCost
 import id.itborneo.cekongkir.model.*
-import id.itborneo.cekongkir.network.RetrofitClientInstance
+import id.itborneo.cekongkir.network.rajaongkir.RetrofitClientInstance
 import id.itborneo.cekongkir.searchbar.SuggestionAdapter
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,12 +14,17 @@ class MainActivityNetwork(private val mainActivity: MainActivity) {
 
     private val TAG = "MainActivity : Network"
 
+
+    private  var indexCostReq : Int = 0
+
+
     fun cityFromApi(adapter: SuggestionAdapter) {
         val cities = mutableListOf<City>()
 
 
         val service = RetrofitClientInstance.retrofitInstance
         val call = service?.allCity()
+
 
         call?.enqueue(object : Callback<JsonCity> {
             override fun onFailure(call: Call<JsonCity>, t: Throwable) {
@@ -52,8 +57,22 @@ class MainActivityNetwork(private val mainActivity: MainActivity) {
     }
 
 
-    fun reqCost(costPost: CostPost) {
+    val costPosts = mutableListOf<CostPost>()
 
+
+    fun reqCost(costPost: MutableList< CostPost>){
+
+        costPost.forEach {
+            Log.d(TAG,"costPost for each ${it}")
+            costPosts.add(it)
+            reqCost(it)
+
+
+        }
+    }
+
+    private fun reqCost(costPost: CostPost) {
+        Log.d(TAG, "request $costPost $indexCostReq")
         val service = RetrofitClientInstance.retrofitInstance
         val call = service?.getCost(costPost)
 
@@ -78,11 +97,10 @@ class MainActivityNetwork(private val mainActivity: MainActivity) {
 
 
 
-
                 ongkircosts?.forEach {
                     itemCostsRespose.add(
                         ItemCostsRespose(
-                            mainActivity.getCourier()[0],
+                           mainActivity.getCourier()[indexCostReq],
                             it?.service,
                             it?.description,
                             it?.cost?.get(0)?.value,
@@ -101,17 +119,33 @@ class MainActivityNetwork(private val mainActivity: MainActivity) {
 
                     )
 
-                val listCostRespose = ArrayList<CostResponse>()
+                Log.d(TAG,"costResponse+ $costResponse")
+
                 listCostRespose.add(costResponse)
                 Log.d(TAG,"response+ $listCostRespose")
 
-                mainActivity.moveActivity(listCostRespose)
 
+                indexCostReq +=1
+                Log.d(TAG,"indexCostReq  $indexCostReq and ${costPosts.size}")
+
+                if(indexCostReq == costPosts.size){
+
+
+                    mainActivity.moveActivity(listCostRespose)
+                    indexCostReq = 0
+                }
 
             }
 
         })
 
+
+    }
+    val listCostRespose = ArrayList<CostResponse>()
+
+
+
+    fun kurirReqCost(kurir: Kurir){
 
     }
 

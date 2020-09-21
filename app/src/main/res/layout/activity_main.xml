@@ -1,114 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundPrimary"
     android:orientation="vertical"
-    android:id="@+id/ml_root"
-    app:layoutDescription="@xml/activity_main_scene"
-    tools:context=".mainactivity.MainActivity">
+    tools:context=".mainactivity.MainActivity"
+>
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="50dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/sb_kota_tujuan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sb_kota_pengirim"
-        android:contentDescription="@string/side_image" />
-
-    <com.google.android.material.appbar.AppBarLayout
-
-        android:id="@+id/appBarLayout"
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/ml_root"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorBackgroundPrimary"
-        android:elevation="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical"
+        app:layoutDescription="@xml/activity_main_scene"
+        android:paddingBottom="48dp"
+        tools:context=".mainactivity.MainActivity">
+
 
         <ImageView
-            android:contentDescription="@string/menu"
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/side_image"
+            app:layout_constraintBottom_toBottomOf="@+id/sb_kota_tujuan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sb_kota_pengirim" />
+
+        <!--    <ImageView-->
+        <!--        android:id="@+id/iv_sender"-->
+        <!--        android:layout_width="0dp"-->
+        <!--        android:layout_height="50dp"-->
+        <!--        android:layout_marginStart="8dp"-->
+        <!--        android:contentDescription="@string/side_image"-->
+        <!--        android:src="@color/colorTextPrimary"-->
+        <!--        app:layout_constraintBottom_toBottomOf="@+id/sb_kota_pengirim"-->
+        <!--        app:layout_constraintEnd_toEndOf="@+id/imageView2"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/image" />-->
+
+
+        <ImageView
+            android:id="@+id/iv_sender"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/side_image"
+            android:src="@drawable/ic_origin"
+            app:layout_constraintBottom_toBottomOf="@+id/sb_kota_pengirim"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sb_kota_pengirim"
+            app:layout_constraintTop_toTopOf="@+id/sb_kota_pengirim" />
+
+        <ImageView
+            android:id="@+id/iv_dot"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:contentDescription="@string/side_image"
+            android:src="@drawable/ic_dot"
+            app:layout_constraintBottom_toTopOf="@+id/iv_receive"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_sender" />
+
+
+        <ImageView
+            android:id="@+id/iv_receive"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/side_image"
+            android:src="@drawable/ic_location"
+            app:layout_constraintBottom_toBottomOf="@+id/sb_kota_tujuan"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sb_kota_tujuan" />
+
+        <com.google.android.material.appbar.AppBarLayout
+
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorBackgroundPrimary"
+            android:elevation="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/AppbarStyleText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Cek Ongkir"/>
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:contentDescription="@string/menu"-->
+<!--                app:srcCompat="@drawable/ic_menu" />-->
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ImageView
+
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:contentDescription="@string/ilustrator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:srcCompat="@drawable/ic_undraw_deliver_illustrator" />
+
+
+        <!--    app:mt_backIconDrawable="@drawable/ic_menu"-->
+
+
+        <!--    </LinearLayout>-->
+
+
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            android:layout_marginTop="16dp"
+
+            android:id="@+id/sb_kota_pengirim"
+            style="@style/SearchViewStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/image"
+            app:mt_hint="Kota Pengirim"
+            app:mt_maxSuggestionsCount="3"
+            app:mt_placeholder="Kota Pengirim" />
+
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            android:id="@+id/sb_kota_tujuan"
+            style="@style/SearchViewStyle"
+            app:layout_constraintEnd_toEndOf="@+id/sb_kota_pengirim"
+            app:layout_constraintStart_toStartOf="@+id/sb_kota_pengirim"
+            app:layout_constraintTop_toBottomOf="@+id/sb_kota_pengirim"
+            app:mt_hint="Kota Tujuan"
+            app:mt_maxSuggestionsCount="3"
+            app:mt_placeholder="Kota Tujuan"
+            />
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:id="@+id/textView"
+            style="@style/textTitleBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/kurir"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sb_kota_tujuan" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_kurir"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_menu" />
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_kurir"
+            tools:orientation="horizontal" />
 
+        <Button
+            android:id="@+id/btn_cek_ongkir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="14dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/cek_ongkir"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_kurir"
+            />
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <ImageView
-
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:srcCompat="@drawable/ic_undraw_deliver_illustrator"
-        android:contentDescription="@string/ilustrator" />
-
-
-    <!--    app:mt_backIconDrawable="@drawable/ic_menu"-->
-
-
-    <!--    </LinearLayout>-->
-
-
-    <com.mancj.materialsearchbar.MaterialSearchBar
-
-        android:id="@+id/sb_kota_pengirim"
-        style="@style/SearchViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/image"
-        app:mt_hint="Kota Pengirim"
-        app:mt_maxSuggestionsCount="3"
-        app:mt_placeholder="Kota Pengirim" />
-
-    <com.mancj.materialsearchbar.MaterialSearchBar
-
-        android:id="@+id/sb_kota_tujuan"
-        style="@style/SearchViewStyle"
-        android:elevation="140dp"
-        app:layout_constraintEnd_toEndOf="@+id/sb_kota_pengirim"
-        app:layout_constraintStart_toStartOf="@+id/sb_kota_pengirim"
-        app:layout_constraintTop_toBottomOf="@+id/sb_kota_pengirim"
-        app:mt_hint="Kota Tujuan"
-        app:mt_maxSuggestionsCount="3"
-        app:mt_placeholder="Kota Tujuan" />
-
-    <TextView
-        android:id="@+id/textView"
-        style="@style/textTitleBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/kurir"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sb_kota_tujuan" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_kurir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:itemCount="3"
-        tools:listitem="@layout/item_kurir"
-        tools:orientation="horizontal" />
-
-    <Button
-        android:id="@+id/btn_cek_ongkir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cek_ongkir"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_kurir" />
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</ScrollView>

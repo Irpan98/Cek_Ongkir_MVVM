@@ -4,6 +4,10 @@
     <string name="side_image">side_image</string>
     <string name="menu">menu</string>
     <string name="ilustrator">ilustrator</string>
-    <string name="kurir">Kurir</string>
+    <string name="kurir">Kurir Yang Tersedia</string>
     <string name="cek_ongkir">Cek Ongkir</string>
+    <string name="access_token">pk.eyJ1IjoiaXJwYW4iLCJhIjoiY2tjZzNnenU4MGlvYzJxbzM5cWd3MTI3MCJ9.ZbxgRVOg1NxgXcjjVvUA6w</string>
+
+<!--    <string name="access_token" translatable="false">sk.eyJ1IjoiaXJwYW4iLCJhIjoiY2tjaGd0bjBsMTFxeTJ6cGJjbnQ2cTg5eCJ9.61DbWgSi4o1j5sMrEKcoqQ</string>-->
+
 </resources>

@@ -7,6 +7,7 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import com.mancj.materialsearchbar.MaterialSearchBar
 import id.itborneo.cekongkir.R
 import id.itborneo.cekongkir.searchbar.SuggestionAdapter
+import id.itborneo.cekongkir.utils.hideKeyboard
 
 class MainActivitySearch (private val mainActivity: MainActivity, private val ml_root : MotionLayout):  MaterialSearchBar.OnSearchActionListener {
 
@@ -18,25 +19,34 @@ class MainActivitySearch (private val mainActivity: MainActivity, private val ml
         if (buttonCode == MaterialSearchBar.BUTTON_BACK) {
             Log.d(TAG, "backclicked")
         }
+
     }
+
 
     override fun onSearchStateChanged(enabled: Boolean) {
         Log.d(TAG, "onSearchStateChanged $enabled")
 
+
+
         if (enabled) { //suggestion kebuka
+
             ml_root.setTransition(R.id.transition_search_bar)
 
             ml_root.transitionToEnd()
         } else {
-//            ml_root.setTransition()
-//            ml_root.setTransition(R.id.transition_search_bar_toStart)
-
-//            ml_root.transitionToEnd()
+            Log.d(TAG,"onSearchStatChanged $enabled")
+//            closeSearchbar()
+            ml_root.hideKeyboard()
             ml_root.transitionToStart()
 
         }
 
     }
+
+//    private fun closeSearchbar(){
+////        mainActivity.closeSearchbar()
+//
+//    }
 
     override fun onSearchConfirmed(text: CharSequence?) {
         Log.d(TAG, "onSearchConfirmed $text")
@@ -75,6 +85,7 @@ class MainActivitySearch (private val mainActivity: MainActivity, private val ml
                     adapter.filter.filter(searchBar.text)
                     Log.d(TAG, "textChanged; not null")
                 } else {
+
                     Log.d(TAG, "textChanged; isNull")
                 }
 

@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mancj.materialsearchbar.MaterialSearchBar
-import id.itborneo.cekongkir.DetailActivity
+import id.itborneo.cekongkir.details.DetailActivity
 import id.itborneo.cekongkir.KurirRecyclerViewAdapter
 import id.itborneo.cekongkir.R
 import id.itborneo.cekongkir.model.City
@@ -19,6 +19,7 @@ import id.itborneo.cekongkir.model.CostResponse
 import id.itborneo.cekongkir.model.Kurir
 import id.itborneo.cekongkir.searchbar.SuggestionAdapter
 import id.itborneo.cekongkir.utils.COST_INTENT
+import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -26,14 +27,13 @@ class MainActivity : AppCompatActivity() {
 
     private val TAG = "MainActivity"
 
-
     private var costPost = CostPost()
 
     private lateinit var suggestionAdapterPengirim: SuggestionAdapter
     private lateinit var suggestionAdapterTujuan: SuggestionAdapter
     private lateinit var mainActivityNetwork: MainActivityNetwork
 
-    //var listKota = mutableListOf<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,31 +41,53 @@ class MainActivity : AppCompatActivity() {
         suggestionAdapterPengirim = setSearchAdapter(sb_kota_pengirim)
         suggestionAdapterTujuan = setSearchAdapter(sb_kota_tujuan)
 
-
         val mainActivitySearch =
-            MainActivitySearch(this, ml_root)
+            MainActivitySearch(this, ml_root )
 
 
         mainActivityNetwork = MainActivityNetwork(this)
 
-        mainActivitySearch.searchKota(sb_kota_pengirim, suggestionAdapterPengirim)
+
+
+       mainActivitySearch.searchKota(sb_kota_pengirim, suggestionAdapterPengirim)
         mainActivitySearch.searchKota(sb_kota_tujuan, suggestionAdapterTujuan)
-
-
-
-        costPost.courier = "jne"
-
-        btn_cek_ongkir.setOnClickListener {
-            mainActivityNetwork.reqCost(costPost)
-        }
 
         setCourierView()
 
+
+        //costPost.courier = "jne"
+
+        val costs = mutableListOf<CostPost>()
+
+
+
+        btn_cek_ongkir.setOnClickListener {
+
+            for (i in 0 until kurir.size) {
+
+                costs.add(costPost.copy(courier = kurir[i].kurir))
+
+                Log.d(TAG,"costpos $i ${costs[i]}")
+
+            }
+
+
+
+            Log.d(TAG,"costpost $costs")
+            mainActivityNetwork.reqCost(costs)
+
+
+
+        }
+
+
+
         sb_kota_pengirim.setOnSearchActionListener(mainActivitySearch)
+        sb_kota_tujuan.setOnSearchActionListener(mainActivitySearch)
+
 
 
     }
-
 
 
     private lateinit var kurir: MutableList<Kurir>
@@ -91,6 +113,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
     fun getCourier(): MutableList<Kurir> {
         return kurir
