@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".details.DetailActivity">
+    tools:context=".ui.details.DetailActivity">
     <com.google.android.material.appbar.AppBarLayout
 
         android:id="@+id/appBarLayout"
@@ -64,12 +64,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        tools:context=".details.DetailActivity">
+        tools:context=".ui.details.DetailActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".details.DetailActivity">
+            tools:context=".ui.details.DetailActivity">
 
 
             <com.mapbox.mapboxsdk.maps.MapView

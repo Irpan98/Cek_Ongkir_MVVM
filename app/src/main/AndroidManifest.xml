@@ -15,11 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".details.DetailActivity"
+            android:name="id.itborneo.cekongkir.ui.details.DetailActivity"
 
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mainactivity.MainActivity"
+            android:name="id.itborneo.cekongkir.ui.mainactivity.MainActivity"
 
             android:screenOrientation="portrait">
             <intent-filter>

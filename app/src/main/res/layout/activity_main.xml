@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".mainactivity.MainActivity"
->
+    tools:context=".ui.mainactivity.MainActivity">
 
 
     <androidx.constraintlayout.motion.widget.MotionLayout
@@ -16,9 +15,9 @@
         android:layout_height="wrap_content"
         android:background="@color/colorBackgroundPrimary"
         android:orientation="vertical"
-        app:layoutDescription="@xml/activity_main_scene"
         android:paddingBottom="48dp"
-        tools:context=".mainactivity.MainActivity">
+        app:layoutDescription="@xml/activity_main_scene"
+        tools:context=".ui.mainactivity.MainActivity">
 
 
         <ImageView
@@ -94,13 +93,13 @@
                 style="@style/AppbarStyleText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Cek Ongkir"/>
+                android:text="Cek Ongkir" />
 
-<!--            <ImageView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:contentDescription="@string/menu"-->
-<!--                app:srcCompat="@drawable/ic_menu" />-->
+            <!--            <ImageView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:contentDescription="@string/menu"-->
+            <!--                app:srcCompat="@drawable/ic_menu" />-->
 
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -124,10 +123,10 @@
 
 
         <com.mancj.materialsearchbar.MaterialSearchBar
-            android:layout_marginTop="16dp"
-
             android:id="@+id/sb_kota_pengirim"
+
             style="@style/SearchViewStyle"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/image"
@@ -143,15 +142,14 @@
             app:layout_constraintTop_toBottomOf="@+id/sb_kota_pengirim"
             app:mt_hint="Kota Tujuan"
             app:mt_maxSuggestionsCount="3"
-            app:mt_placeholder="Kota Tujuan"
-            />
+            app:mt_placeholder="Kota Tujuan" />
 
         <TextView
-            android:layout_marginTop="8dp"
             android:id="@+id/textView"
             style="@style/textTitleBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/kurir"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sb_kota_tujuan" />
@@ -180,8 +178,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_kurir"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/rv_kurir" />
     </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </ScrollView>
